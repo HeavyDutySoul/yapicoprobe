@@ -25,9 +25,9 @@ CMAKE_FLAGS += -DOPT_MSC=OFF
 CMAKE_FLAGS += -DOPT_MSC_RAM_UF2=OFF
 CMAKE_FLAGS += -DOPT_NET=""
 CMAKE_FLAGS += -DOPT_CDC_SYSVIEW=ON
+CMAKE_FLAGS += -DOPT_PROBE_DEBUG_OUT=UART
 CMAKE_FLAGS += -DOPT_SIGROK=ON
 CMAKE_FLAGS += -DOPT_MCU_FORCE_CLOCK_MHZ=120
-CMAKE_FLAGS += -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 
 # speeds up a lot if often switching configurations, see benchmarking of create-images below
 #CMAKE_FLAGS += -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
@@ -100,13 +100,21 @@ cmake-create-debug: clean-build
 	      $(CMAKE_FLAGS)
 
 
-
 .PHONY: cmake-create-release
 cmake-create-release: clean-build
 	cmake -B $(BUILD_DIR) -G Ninja -DCMAKE_BUILD_TYPE=Release -DPICO_BOARD=$(PICO_BOARD)                               \
 	      $(if $(OPT_SIGROK),-DOPT_SIGROK=$(OPT_SIGROK))                                                               \
 	      -DPICO_CLIB=newlib                                                                                           \
 	      $(CMAKE_FLAGS)
+
+
+.PHONY: cmake-create-relwdeb
+cmake-create-relwdeb: clean-build
+	cmake -B $(BUILD_DIR) -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DPICO_BOARD=$(PICO_BOARD)                               \
+	      $(if $(OPT_SIGROK),-DOPT_SIGROK=$(OPT_SIGROK))                                                               \
+	      -DPICO_CLIB=newlib                                                                                           \
+	      $(CMAKE_FLAGS)
+
 
 
 #

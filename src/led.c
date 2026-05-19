@@ -26,6 +26,8 @@
 #include <pico/stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "hardware/pio.h"
+#include "ws2812.pio.h"
 
 #ifdef TARGET_BOARD_PICO_W
     #include "pico/cyw43_arch.h"
@@ -127,7 +129,18 @@ static uint64_t       rtt_data_trigger;
 
 static void led(uint8_t state)
 {
-#ifdef TARGET_BOARD_PICO_W
+#if defined(PROBE_RGB_LED)
+    static bool initialized;
+
+    if ( !initialized) {
+        initialized = true;
+        uint offset = pio_add_program(PROBE_RGB_LED_PIO, &ws2812_program);
+        ws2812_program_init(PROBE_RGB_LED_PIO, PROBE_RGB_LED_PIO_SM, offset, PROBE_RGB_LED, 800000, false);
+    }
+
+    uint32_t color = state ? 0x40000000 : 0x00000000;
+    pio_sm_put_blocking(PROBE_RGB_LED_PIO, PROBE_RGB_LED_PIO_SM, color);
+#elif defined(TARGET_BOARD_PICO_W)
     cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, state);
 #elif defined(PROBE_LED)
     static bool initialized;

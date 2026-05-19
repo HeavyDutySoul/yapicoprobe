@@ -185,6 +185,8 @@ add_executable(${PROJECT}
         src/cmsis-dap/dap_util.c
 )
 
+pico_generate_pio_header(${PROJECT} ${CMAKE_CURRENT_LIST_DIR}/src/ws2812.pio)
+
 target_sources(${PROJECT} PRIVATE
         CMSIS_DAP/Firmware/Source/DAP.c
         CMSIS_DAP/Firmware/Source/JTAG_DP.c
