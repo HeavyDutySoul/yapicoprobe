@@ -1,0 +1,10 @@
+CompileFlags:
+  Add:
+    - "-stdlib=libstdc++"
+    - "--target=arm-none-eabi"
+    # Manually add the system headers (because automatic query fails due to incompatible arguments).
+    - "-isystem/usr/arm-none-eabi/include/c++/14.2.0"
+    - "-isystem/usr/arm-none-eabi/include/c++/14.2.0/arm-none-eabi"
+    - "-isystem/usr/arm-none-eabi/include/c++/14.2.0/backward"
+    - "-isystem/usr/lib/gcc/arm-none-eabi/14.2.0/include-fixed"
+    - "-isystem/usr/arm-none-eabi/include"
