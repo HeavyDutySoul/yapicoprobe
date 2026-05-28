@@ -26,7 +26,9 @@ pico_board_cmake_set(PICO_PLATFORM, rp2040)
 #define PROBE_CPU_CLOCK_MAX_MHZ  (12 * 24)
 
 pico_board_cmake_set_default(PICO_FLASH_SIZE_BYTES, (4 * 1024 * 1024))
+#ifndef PICO_FLASH_SIZE_BYTES
 #define PICO_FLASH_SIZE_BYTES (4 * 1024 * 1024)
+#endif
 
 // LED config
 #define PICO_DEFAULT_WS2812_PIN 22
