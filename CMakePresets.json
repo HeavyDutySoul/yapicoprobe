@@ -11,12 +11,12 @@
                 "PICOPROBE_VERSION_MINOR": "2",
                 "PICOPROBE_VERSION_PATCH": "4",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-                "CMAKE_MAKE_PROGRAM": "$penv{USERPROFILE}/.pico-sdk/ninja/v1.12.1/ninja"
+                "CMAKE_MAKE_PROGRAM": "$penv{HOME}/.pico-sdk/ninja/v1.12.1/ninja"
             },
             "environment": {
-                "PICO_SDK_PATH": "$penv{USERPROFILE}/.pico-sdk/sdk/2.2.0",
-                "PICO_TOOLCHAIN_PATH": "$penv{USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1",
-                "PATH": "$penv{USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1/bin;$penv{USERPROFILE}/.pico-sdk/picotool/2.2.0-a4/picotool;$penv{USERPROFILE}/.pico-sdk/cmake/v3.31.5/bin;$penv{USERPROFILE}/.pico-sdk/ninja/v1.12.1;$penv{PATH}"
+                "PICO_SDK_PATH": "$penv{HOME}/.pico-sdk/sdk/2.2.0",
+                "PICO_TOOLCHAIN_PATH": "$penv{HOME}/.pico-sdk/toolchain/14_2_Rel1",
+                "PATH": "$penv{HOME}/.pico-sdk/toolchain/14_2_Rel1/bin;$penv{HOME}/.pico-sdk/picotool/2.2.0-a4/picotool;$penv{HOME}/.pico-sdk/cmake/v3.31.5/bin;$penv{HOME}/.pico-sdk/ninja/v1.12.1;$penv{PATH}"
             }
         },
         {
@@ -28,6 +28,17 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "PICO_BOARD": "pico"
+            }
+        },
+        {
+            "name": "usb_mini",
+            "inherits": "default",
+            "displayName": "USB MINI RP2040",
+            "description": "Build for USB MINI RP2040",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "PICO_BOARD": "usb_mini_rp2040"
             }
         },
         {
@@ -112,6 +123,10 @@
         {
             "name": "pico-build",
             "configurePreset": "pico"
+        },
+        {
+            "name": "usb_mini-build",
+            "configurePreset": "usb_mini"
         },
         {
             "name": "pico_w-build",
