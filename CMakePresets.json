@@ -11,13 +11,13 @@
                 "PICOPROBE_VERSION_MINOR": "2",
                 "PICOPROBE_VERSION_PATCH": "4",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-                "CMAKE_MAKE_PROGRAM": "$penv{HOME}/.pico-sdk/ninja/v1.12.1/ninja"
+                "CMAKE_MAKE_PROGRAM": "$penv{USERPROFILE}/.pico-sdk/ninja/v1.12.1/ninja"
             },
             "environment": {
-                "PICO_SDK_PATH": "$penv{HOME}/.pico-sdk/sdk/2.2.0",
-                "PICO_TOOLCHAIN_PATH": "$penv{HOME}/.pico-sdk/toolchain/14_2_Rel1",
-                "picotool_DIR": "$penv{HOME}/.pico-sdk/picotool/2.1.1/picotool",
-                "PATH": "$penv{HOME}/.pico-sdk/toolchain/14_2_Rel1/bin;$penv{HOME}/.pico-sdk/picotool/2.1.1/picotool;$penv{HOME}/.pico-sdk/cmake/v3.31.5/bin;$penv{HOME}/.pico-sdk/ninja/v1.12.1;$penv{PATH}"
+                "PICO_SDK_PATH": "$penv{USERPROFILE}/.pico-sdk/sdk/2.2.0",
+                "PICO_TOOLCHAIN_PATH": "$penv{USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1",
+                "picotool_DIR": "$penv{USERPROFILE}/.pico-sdk/picotool/2.2.0-a4/picotool",
+                "PATH": "$penv{USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1/bin;$penv{USERPROFILE}/.pico-sdk/picotool/2.2.0-a4/picotool;$penv{HOME}/.pico-sdk/cmake/v3.31.5/bin;$penv{USERPROFILE}/.pico-sdk/ninja/v1.12.1;$penv{PATH}"
             }
         },
         {

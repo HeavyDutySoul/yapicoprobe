@@ -39,11 +39,11 @@ pico_board_cmake_set_default(PICO_FLASH_SIZE_BYTES, (4 * 1024 * 1024))
 // PIO config
 #define PROBE_PIO                pio0
 #define PROBE_PIO_SM             0
-#define PROBE_PIO_PIN_OFFSET     1
+#define PROBE_PIO_PIN_OFFSET     15
 #define PROBE_PIO_PIN_COUNT      3
-#define PROBE_PIO_PIN_SWDIR      (PROBE_PIO_PIN_OFFSET + 0) // 1
-#define PROBE_PIO_PIN_SWCLK      (PROBE_PIO_PIN_OFFSET + 15) // 2
-#define PROBE_PIO_PIN_SWDIO      (PROBE_PIO_PIN_OFFSET + 16) // 3
+#define PROBE_PIO_PIN_SWDIR      (PROBE_PIO_PIN_OFFSET + 0)
+#define PROBE_PIO_PIN_SWCLK      (PROBE_PIO_PIN_OFFSET + 1)
+#define PROBE_PIO_PIN_SWDIO      (PROBE_PIO_PIN_OFFSET + 2)
 #define PROBE_PIO_PIN_RESET      6                      // Target reset config
 //#define PROBE_MAX_KHZ         now in g_board_info.target_cfg->rt_max_swd_kHz, setup in pico::pico_prerun_board_config()
 
